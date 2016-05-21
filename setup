@@ -6,8 +6,18 @@ if [ ! `id -u` -eq 0 ]
         exit 1
 fi
 
+# remove some games etc
+rm -r /home/pi/python_games
+apt-get purge -y wolfram-engine minecraft-pi sonic-pi scratch
+apt-get autoremove -y
+apt-get clean
+
+# update and upgrade
 apt-get update
 apt-get upgrade -y
 apt-get clean
+
+# install some essentials
+apt-get install ufw xrdp gparted gdisk python-pip 
 
 exit 0
