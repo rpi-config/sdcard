@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ ! `id -u` -eq 0 ]
+    then
+        echo "You need ROOT privileges (try using sudo)"
+        exit 1
+fi
+
+apt-get update
+apt-get upgrade -y
+apt-get clean
+
+exit 0
